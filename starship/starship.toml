@@ -1,4 +1,3 @@
-
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -70,63 +69,62 @@ disabled = false
 
 [os.symbols]
 AIX = "AIX "
-Alpaquita = "\uf26a " # \uf26a  # \ue3a5\ue390 
-AlmaLinux = "\uf31d " # 
-Alpine = "\uf300 " # ""
-Amazon = "\uf270 " # ""
-Android = "\ue70e " # ""
-Arch = "\uf303 " # ""
-Artix = "\uf31f " # 
-CentOS = "\uf304 " # ""
-Debian = "\uf306 " # ""
-DragonFly = "\ueef8 " #    🐉
-Emscripten = "\u26A1 " # ⚡
-EndeavourOS = "\uf322 " # "" # 
-Fedora = "\uf30a " # ""
-FreeBSD = "\uf30c " # ""
-Garuda = "\uf337 " # ""
-Gentoo = "\uf30d " # ""
-HardenedBSD = "\uf132 " # 
-Illumos = "\uf326 " # "🐦"
-Kali = "\uf327 " # 
-Linux = "\uf17c " # ""
-Mabox = "\uf1b2 " #  📦
-Macos = "\uf302 " # ""
-Manjaro = "\uf312 " # ""
-Mariner = "\ue7ae " # \ue7ae 
-MidnightBSD = "\ue3e0 " # 🌘
-Mint = "\uf30e " # ""
-NetBSD = "\u2691 " # ⚑
-NixOS = "\uf313 " # ""
-OpenBSD = "\uf328 " # ""
-OpenCloudOS = "\uf0c2 " # 
-openEuler = "\u2208 " # \u2208 ∈
-openSUSE = "\uf314 " # ""
-OracleLinux = "\u213A " # \u213A ℺ # ⊂⊃ \u2282\u2283
-Pop = "\uf32a " # ""
-Raspbian = "\uf315 " # ""
-Redhat = "\uf316 " # "" # 󱄛
-RedHatEnterprise = "\uf316 " # "" # 󱄛
-RockyLinux = "\uf32b " # 
-Redox = "\uf331 " #   󰺕
-Solus = "\uf32d " # "" # " "
-SUSE = "\uef6d " # ""
-Ubuntu = "\uf31b " # ""
-Ultramarine = "󱙳 " # 🔷
-Unknown = "\uf108 " # ""
-Void = "\uf32e " #  
-Windows = "\uf17a " # ""
+Alpaquita = "\uf26a "
+AlmaLinux = "\uf31d "
+Alpine = "\uf300 "
+Amazon = "\uf270 "
+Android = "\ue70e "
+Arch = "\uf303 "
+Artix = "\uf31f "
+CentOS = "\uf304 "
+Debian = "\uf306 "
+DragonFly = "\ueef8 "
+Emscripten = "\u26A1 "
+EndeavourOS = "\uf322 "
+Fedora = "\uf30a "
+FreeBSD = "\uf30c "
+Garuda = "\uf337 "
+Gentoo = "\uf30d "
+HardenedBSD = "\uf132 "
+Illumos = "\uf326 "
+Kali = "\uf327 "
+Linux = "\uf17c "
+Mabox = "\uf1b2 "
+Macos = "\uf302 "
+Manjaro = "\uf312 "
+Mariner = "\ue7ae "
+MidnightBSD = "\ue3e0 "
+Mint = "\uf30e "
+NetBSD = "\u2691 "
+NixOS = "\uf313 "
+OpenBSD = "\uf328 "
+OpenCloudOS = "\uf0c2 "
+openEuler = "\u2208 "
+openSUSE = "\uf314 "
+OracleLinux = "\u213A "
+Pop = "\uf32a "
+Raspbian = "\uf315 "
+Redhat = "\uf316 "
+RedHatEnterprise = "\uf316 "
+RockyLinux = "\uf32b "
+Redox = "\uf331 "
+Solus = "\uf32d "
+SUSE = "\uef6d "
+Ubuntu = "\uf31b "
+Ultramarine = "󱙳 "
+Unknown = "\uf108 "
+Void = "\uf32e "
+Windows = "\uf17a "
 
 [shell]
 format = '[$indicator]($style)()'
 style = 'fg:#424242 bg:#252525'
-# empty indicator (''): e.g. if you do not want to see indicator for your standard shell
-zsh_indicator = '%_ ' # '%_ ' '󰰶 '
-bash_indicator = '\$_ ' # "\uebca " ' ' '\$_ '
-fish_indicator = '>> ' # "\uee41 " '󰈺 ' '>>_ '
-powershell_indicator = '>_ ' # "\uebc7 " ' ' '>_'
-unknown_indicator = '?_ ' # '?_ ' ' '
-disabled = true # set to false if you want to see the shell indicator
+zsh_indicator = '%_ '
+bash_indicator = '\$_ '
+fish_indicator = '>> '
+powershell_indicator = '>_ '
+unknown_indicator = '?_ '
+disabled = true
 
 [username]
 format = '[ ](fg:green bold bg:#252525)[$user]($style)[ ](bg:#252525)'
@@ -138,27 +136,26 @@ disabled = false
 [hostname]
 format = '[$ssh_symbol ](fg:green bold bg:#252525)[$hostname](fg:green bold bg:#252525)[ ](bg:#252525)'
 ssh_only = true
-ssh_symbol = '' # '⇒' # ' ' # 'ﬁ⇒'
-#trim_at = '.companyname.com'
+ssh_symbol = ''
 disabled = false
 
 [sudo]
 format = '[ ](fg:red bold bg:#252525)[ $symbol]($style)'
 style = 'fg:red bold bg:#252525'
-symbol = ' ' # ' ❯ '
+symbol = ' '
 disabled = false
 
 [directory]
 format = '[ ](fg:cyan bold bg:#252525)[$read_only]($read_only_style)[$repo_root]($repo_root_style)[$path ]($style)'
 style = 'fg:cyan bold bg:#252525'
 home_symbol = ' ~'
-read_only = ' ' # ' ' # ' ''
+read_only = ' '
 read_only_style = 'fg:cyan bg:#252525'
 truncation_length = 3
 truncation_symbol = '…/'
 truncate_to_repo = true
 repo_root_format = '[ ](fg:cyan bold bg:#252525)[$read_only]($read_only_style)[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path ]($style)'
-repo_root_style	= 'fg:cyan bold bg:#252525'
+repo_root_style = 'fg:cyan bold bg:#252525'
 use_os_path_sep = true
 disabled = false
 
@@ -166,35 +163,34 @@ disabled = false
 symbol = 'direnv'
 style = 'fg:#505050 bold bg:#252525'
 format = "[❯ $symbol $loaded/$allowed ]($style)"
-allowed_msg = 'a' # 'ok' # '✓'
-not_allowed_msg = '!a' # 'nok' # '!'
-denied_msg = 'x' # '✘'
-loaded_msg = '+' # "\ueabc" # \ueabc  # '->' # 'yo' # '󰗡' # \udb81\udde1 # '󱥸✓' # '󱥸✓' # 
-unloaded_msg = '-' # "\ueabc!" # \ueabc ! # '->!' # 'no' # '󰅚' # '󱥸!' \udb86\udd78
+allowed_msg = 'a'
+not_allowed_msg = '!a'
+denied_msg = 'x'
+loaded_msg = '+'
+unloaded_msg = '-'
 disabled = false
 
 [php]
 format = "[[ \u3009](fg:#7a86b8 bg:#252525)[$symbol](fg:#7a86b8 italic bg:#252525)($version )]($style)"
 style = 'fg:#7a86b8 bg:#252525)'
-symbol = "php " # \ue73d  # 󰌟
+symbol = "php "
 
 [python]
 format = "[\u3009${symbol}${pyenv_prefix}(${version} )(($virtualenv) )]($style)"
 style = 'fg:yellow bg:#252525'
-symbol = "\ue73c " # 
+symbol = "\ue73c "
 pyenv_version_name = true
 
 [git_branch]
 format = '[❯ $symbol $branch(:$remote_branch)]($style)[ ](bg:#252525)'
 style = 'fg:#E04D27 bg:#252525'
-symbol = ''
-#ignore_branches = ['master', 'main']
+symbol = ''
 
 [git_commit]
 format = '[\($hash$tag\)]($style)[ ](bg:#252525)'
 style = 'fg:#E04D27 bg:#252525'
 commit_hash_length = 8
-tag_symbol = '  ' # '  ''
+tag_symbol = '  '
 tag_disabled = false
 disabled = false
 
@@ -210,66 +206,58 @@ style = 'fg:#E04D27 bg:#252525'
 conflicted = '[${count} ](fg:red bg:#252525)'
 ahead = '[⇡${count} ](fg:yellow bg:#252525)'
 behind = '[⇣${count} ](fg:yellow bg:#252525)'
-diverged = '[⇕${ahead_count}⇡${behind_count}⇣ ](fg:yellow bg:#252525)' # ⇕ ↕ ⇳ 󰹹 󰹺 󰧈
+diverged = '[⇕${ahead_count}⇡${behind_count}⇣ ](fg:yellow bg:#252525)'
 up_to_date = '[✓ ](fg:green bg:#252525)'
-untracked = '[ﳇ${count} ](fg:red bg:#252525)' # ' ' # '? '
-stashed = '[${count} ](fg:#A52A2A bg:#252525)' # '📦 '# ' ' # ' ' # ' ' # ' '
-modified = '[󰷉${count} ](fg:#C8AC00 bg:#252525)' # '📝' # '! ' #  #  # 
-staged = '[${count} ](fg:green bg:#252525)' # '+ '
-renamed = '[${count} ](fg:yellow bg:#252525)' # ' ' # '﫦' # ᴂ #  #  #  # ﳳ
-deleted = '[﯊${count} ](fg:orange bg:#252525)' # '🗑 ' '- '
+untracked = '[ﳇ${count} ](fg:red bg:#252525)'
+stashed = '[${count} ](fg:#A52A2A bg:#252525)'
+modified = '[${count} ](fg:#C8AC00 bg:#252525)'  # thay 󰷉 bằng  hoặc ✏️ tuỳ thích
+staged = '[${count} ](fg:green bg:#252525)'
+renamed = '[${count} ](fg:yellow bg:#252525)'
+deleted = '[${count} ](fg:red bg:#252525)'
 disabled = false
 
 [fill]
-style = 'fg:#505050'
-symbol = "\u2500" # "\u2500" "─" # no line: ' '
+symbol = " "
+disabled = false
 
 [status]
-format = '[$symbol $status $hex_status(  $signal_number-$signal_name)]($style)'
-style = 'fg:red bg:#252525'
-symbol = ' ✘'
+format = '[❯$symbol]($style)'
+style = 'fg:#252525 bg:#2f3447'
+symbol = '❯'
 disabled = false
 
 [jobs]
-format = "[ \ueab5 ](fg:blue bold bg:#252525)[$symbol $number]($style)"
-style = 'fg:blue bg:#252525'
-symbol = "\ueb7b" # \ueb7b  \uef0c 省 # '廒' # '󰜎' # ''
-symbol_threshold = 1
-number_threshold = 2
+format = '[ ](fg:#AA8B1D bg:#252525)[$number]($style)'
+style = 'fg:#AA8B1D bg:#252525'
 disabled = false
 
 [memory_usage]
-format = "[ \ueab5 ](fg:purple bold bg:#252525)[$symbol ${ram} ${swap}]($style)"
-style = 'fg:purple bg:#252525'
-symbol = '﬙ 北' # '﬙ 痢' # '﬙ / 󰾵' # '󰍛 󰾵' # '﬙ 󰾴' # '﬙ 󰾶' # '﬙ 󰾷' '﬙ 󰣂'
-threshold = 75
+format = '[ ](fg:#EA8054 bg:#252525)[$symbol$ram]($style)'
+style = 'fg:#EA8054 bg:#252525'
+symbol = ' '
 disabled = false
 
 [cmd_duration]
-format = "[ \ueab5 \uf017 $duration]($style)" # \ueab5 \uf017   
-style = 'fg:yellow bg:#252525'
-min_time = 500
+format = '[ ](fg:#6D59E3 bg:#252525)[$duration]($style)'
+style = 'fg:#6D59E3 bg:#252525'
+min_time = 5_000
 disabled = false
 
 [battery]
-format = "[ \ueab5 $symbol$percentage]($style)"
-full_symbol = '󰁹 '
-charging_symbol = '󰂄 '
-discharging_symbol = '󰂃 '
-unknown_symbol = '󰁽? '
-empty_symbol = '󰂎 '
-disabled = true # set to 'false', if you want to see the battery status
-
-[[battery.display]]
-threshold = 100 # show always
-style = 'fg:#505050 bg:#252525'
+format = '[ ](fg:#E0B20F bg:#252525)[$symbol$percentage]($style)'
+style = 'fg:#E0B20F bg:#252525'
+symbol = ' '
+disabled = true
 
 [time]
-format = "[ \ueab5 $time]($style)"
-style = 'fg:#505050 bg:#252525'
-disabled = true # set to 'false', if you want to see the time
+disabled = false
+format = '[ ](fg:#8AB4F8 bg:#252525)[🕒 $time]($style)'
+style = 'fg:#8AB4F8 bg:#252525'
+time_format = "%H:%M:%S"
 
 [localip]
-format = '[$localipv4](fg:green bold)'
-ssh_only = true
+format = '[$symbol $ip]($style)'
+symbol = '直'
+style = 'fg:#505050 bg:#252525'
 disabled = false
+
