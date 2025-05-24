@@ -116,7 +116,7 @@ disabled = false
 [sudo]
 format = '[ ](fg:red bold bg:#252525)[ $symbol]($style)'
 style = 'fg:red bold bg:#252525'
-symbol = ' '
+symbol = '🛡️ '
 disabled = false
 
 [directory]

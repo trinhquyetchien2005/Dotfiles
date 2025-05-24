@@ -35,6 +35,7 @@ config.window_background_image = bg_image
 
 config.window_background_image_hsb = {
     brightness = brightness,
+
     hue = 1.0,
     saturation = 0.8,
 }
@@ -46,24 +47,14 @@ config.color_scheme = "Tokyo Night"
 config.font = wezterm.font("Inconsolata Nerd Font Mono", { weight = "Medium", stretch = "Expanded" })
 config.font_size = 16
 
-
-
 -- Bỏ tab bar vì dùng tmux
 config.enable_tab_bar = false
+config.adjust_window_size_when_changing_font_size = true
 
 -- Window decorations chỉ resize, không có nút đóng thu nhỏ
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE|RESIZE"
+config.use_resize_increments = true
 
-config.window_frame = {
-    border_left_width = "0.28cell",
-    border_right_width = "0.28cell",
-    border_bottom_height = "0.15cell",
-    border_top_height = "0.15cell",
-    border_left_color = "pink",
-    border_right_color = "pink",
-    border_bottom_color = "pink",
-    border_top_color = "pink",
-}
 
 -- Keybindings giữ lại chỉnh background và mở link chuột
 config.keys = {
