@@ -1,31 +1,5 @@
-# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# ### ------------
-# ### "Power10 bg"
-# ### ------------
-# ### Variant 2 with background: two line prompt, with background in top line, separators on left side
-# - This preset is inspired by a [powerlevel10k](https://github.com/romkatv/powerlevel10k) configuration variant.
-#
-# - Recommended / tested with Font 'MesloLGS NF Regular' from: Meslo Nerd Font patched for Powerlevel10k
-#   Link: https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#manual-font-installation
-#         --> "Manual font installation", with currently 4 Font Types
-
-# - If you do not want the filling solid line in top row:
-#   set the fill symbol to ' '
-# - Shell [shell]:
-#   If you want to see the content of the shell module, search for [shell] and change 'disabled = true' to false
-# - '$line_break': everything from the next line on refers to the second line of the prompt
-# - Some modules listed further down will not show up (all the time), as their default value is 'disabled = true' or
-#   they are only displayed under certain conditions
-# - added but disabled modules: [battery], [time]
-#   - if you want to see them: search for the module and set 'disabled' to 'false' 
-# - Symbols:
-#   Don't be confused if you don't see any "real" symbols here. If Nerd-fonts are installed on your system, it should work.
-
-# Customizing the prompt (and placing desired modules at desired position and sequence):
-# ╭╴ # \u256D\u2574
-# ╰╴ # \u2570\u2574
 format = """
 [╭╴](fg:#505050)\
 $os\
@@ -188,7 +162,7 @@ symbol = ''
 
 [git_commit]
 format = '[\($hash$tag\)]($style)[ ](bg:#252525)'
-style = 'fg:#E04D27 bg:#252525'
+style = 'fg:#2d838c bg:#252525'
 commit_hash_length = 8
 tag_symbol = '  '
 tag_disabled = false
@@ -196,8 +170,8 @@ disabled = false
 
 [git_metrics]
 format = '[\[+$added/]($added_style)[-$deleted\]]($deleted_style)[ ](bg:#252525)'
-added_style = 'fg:#E04D27 bg:#252525'
-deleted_style = 'fg:#E04D27 bg:#252525'
+added_style = 'fg:#3b8f28 bg:#252525'
+deleted_style = 'fg:#94482f bg:#252525'
 disabled = false
 
 [git_status]
@@ -256,8 +230,7 @@ style = 'fg:#8AB4F8 bg:#252525'
 time_format = "%H:%M:%S"
 
 [localip]
-format = '[$symbol $ip]($style)'
-symbol = '直'
+format = '[直 $ip]($style)'
 style = 'fg:#505050 bg:#252525'
 disabled = false
 
