@@ -17,7 +17,13 @@ require("lazy").setup({
       vim.cmd.colorscheme("catppuccin")
     end,
   },
-
+{
+  "windwp/nvim-autopairs",
+  event = "InsertEnter",
+  config = function()
+    require("nvim-autopairs").setup({})
+  end
+},
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -37,9 +43,6 @@ require("lazy").setup({
   -- LSP
   {
     "neovim/nvim-lspconfig",
-    config = function()
-      require("lspconfig").lua_ls.setup({})
-    end,
   },
   {
     "williamboman/mason.nvim",
@@ -65,23 +68,28 @@ require("lazy").setup({
   { "hrsh7th/cmp-nvim-lsp" },
   { "L3MON4D3/LuaSnip" },
 
-  -- Buffer line
+  -- Buffer linedefined
   {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("bufferline").setup({
-        options = {
-          mode = "buffers",
-          diagnostics = "nvim_lsp",
-          show_buffer_close_icons = false,
-          show_close_icon = false,
-          separator_style = "slant",
-        }
-      })
-    end,
+  "akinsho/bufferline.nvim",
+  version = "*",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",  -- icon cho bufferline
   },
+  config = function()
+    require("bufferline").setup({
+      options = {
+        mode = "buffers",              -- hiển thị theo buffer chứ không phải tabs
+        diagnostics = "nvim_lsp",     -- hiển thị lỗi/warning từ LSP
+        show_buffer_close_icons = true, -- ẩn icon đóng từng buffer
+        show_close_icon = false,          -- ẩn icon đóng toàn bộ bufferline
+        separator_style = "thin",        -- kiểu đường kẻ phân cách buffer
+        always_show_bufferline = false,    -- luôn hiển thị bufferline, không ẩn khi chỉ 1 buffer
+        diagnostics_update_in_insert = false, -- không cập nhật diagnostics khi đang insert (giúp giảm giật lag)
+      },
+    })
+  end,
+},
+
 
   -- Treesitter
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
@@ -99,7 +107,7 @@ require("lazy").setup({
     config = function()
       require("lualine").setup({
         options = {
-          theme = "catppuccin",
+          theme = "tokyonight",
           icons_enabled = true,
         },
       })
@@ -131,5 +139,17 @@ require("lazy").setup({
       require("Comment").setup()
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,       -- load ngay khi nvim khởi động
+    priority = 1000,
+    config = function()
+      require("tokyonight").setup({
+        transparent = true,  -- nếu muốn nền trong suốt
+      })
+      vim.cmd.colorscheme("tokyonight")  -- bật theme tokyo night
+    end,
+  },
 })
+require("plugins.lsp") 
 

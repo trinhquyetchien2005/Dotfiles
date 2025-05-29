@@ -1,39 +1,34 @@
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lspconfig = require("lspconfig")
+local mason_lspconfig = require("mason-lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Nâng cấp capabilities cho LSP để cmp hoạt động tốt
-local capabilities = cmp_nvim_lsp.default_capabilities()
-
--- Hàm on_attach không map key nữa, chỉ giữ để làm những việc khác sau này
 local on_attach = function(client, bufnr)
-  -- Có thể thêm logic khác nếu cần
+  -- Tùy chỉnh nếu cần
 end
 
--- Mason setup
 require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "lua_ls",
-    "tsserver",
-    "pyright",
-    "clangd",
-    "kotlin_language_server",
-  },
-})
-
-local lspconfig = require("lspconfig")
 
 local servers = {
   "lua_ls",
-  "tsserver",
+  "ts_ls",           -- dùng tên mới
   "pyright",
   "clangd",
   "kotlin_language_server",
 }
 
+mason_lspconfig.setup({
+  ensure_installed = servers,
+})
+
 for _, server in ipairs(servers) do
-  lspconfig[server].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-  })
+  local lsp = lspconfig[server]
+  if lsp then
+    lsp.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+  else
+    vim.notify("Server " .. server .. " không tồn tại trong lspconfig", vim.log.levels.ERROR)
+  end
 end
 
