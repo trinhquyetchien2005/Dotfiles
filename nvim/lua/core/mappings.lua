@@ -48,6 +48,12 @@ keymap('n', '<Leader>gf', ':Git fetch<CR>', opts) -- vim-fugitive
 -- Completion (nvim-cmp) không cần keymap mặc định, nhưng bạn có thể thêm:
 -- (tùy setup, ví dụ trong insert mode)
 -- keymap('i', '<C-Space>', 'compe#complete()', {expr = true, noremap = true})
+-- Resize cửa sổ bằng Ctrl + mũi tên
+keymap('n', '<C-Up>', ':resize -2<CR>', opts)           -- Giảm chiều cao
+keymap('n', '<C-Down>', ':resize +2<CR>', opts)         -- Tăng chiều cao
+keymap('n', '<C-Left>', ':vertical resize -2<CR>', opts) -- Giảm chiều ngang
+keymap('n', '<C-Right>', ':vertical resize +2<CR>', opts) -- Tăng chiều ngang
+
 
 -- Comment.nvim
 keymap('n', '<Leader>/', '<cmd>CommentToggle<CR>', opts)
@@ -57,4 +63,25 @@ keymap('v', '<Leader>/', '<esc><cmd>CommentToggle<CR>', opts)
 keymap('n', '<Leader>tt', ':ToggleTerm<CR>', opts)
 keymap('t', '<Esc>', [[<C-\><C-n>]], opts) -- thoát terminal mode về normal mode
 
--- Lualine (statusline) thường ko cần keymap đặc biệt, config tự chạy
+-- Java
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "n", "<leader>j", ":w<CR>:!javac % && java %:r<CR>", opts)
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "cpp",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "n", "<leader>c", ":w<CR>:!g++ % -o %:r && ./%:r<CR>", opts)
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "kotlin",
+  callback = function()
+    vim.api.nvim_buf_set_keymap(0, "n", "<leader>k", ":w<CR>:!kotlinc % -include-runtime -d %:r.jar && java -jar %:r.jar<CR>", opts)
+  end,
+})
+

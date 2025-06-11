@@ -31,4 +31,3 @@ for _, server in ipairs(servers) do
     vim.notify("Server " .. server .. " không tồn tại trong lspconfig", vim.log.levels.ERROR)
   end
 end
-
