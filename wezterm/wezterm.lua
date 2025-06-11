@@ -47,6 +47,9 @@ config.color_scheme = "Tokyo Night"
 config.font = wezterm.font("Inconsolata Nerd Font Mono", { weight = "Medium", stretch = "Expanded" })
 config.font_size = 16
 
+-- an thong bao loi 
+config.warn_about_missing_glyphs = false
+
 -- Bỏ tab bar vì dùng tmux
 config.enable_tab_bar = false
 config.adjust_window_size_when_changing_font_size = true
@@ -83,6 +86,11 @@ config.keys = {
         mods = "CTRL|SHIFT",
         action = wezterm.action.OpenLinkAtMouseCursor,
     },
+    {
+        key = "V",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.PasteFrom("Clipboard"),
+	},
     {
         key = ">",
         mods = "CTRL|SHIFT",
