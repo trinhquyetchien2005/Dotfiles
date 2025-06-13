@@ -63,25 +63,69 @@ keymap('v', '<Leader>/', '<esc><cmd>CommentToggle<CR>', opts)
 keymap('n', '<Leader>tt', ':ToggleTerm<CR>', opts)
 keymap('t', '<Esc>', [[<C-\><C-n>]], opts) -- thoát terminal mode về normal mode
 
--- Java
+-- Keymap để mở ToggleTerm
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<Leader>tt', ':ToggleTerm<CR>', opts)
+vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], opts)  -- Thoát terminal mode về normal mode
+
+-- Hàm gửi lệnh vào ToggleTerm
+local function run_toggleterm_cmd(cmd)
+  vim.cmd("ToggleTerm")  
+  vim.fn.chansend(vim.b.terminal_job_id, cmd .. "\n")
+end
+
+-- Java (support package đúng cách)
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function()
-    vim.api.nvim_buf_set_keymap(0, "n", "<leader>j", ":w<CR>:!javac % && java %:r<CR>", opts)
+    vim.api.nvim_buf_set_keymap(0, "n", "<leader>j", "", {
+      noremap = true,
+      callback = function()
+        vim.cmd("w")
+        local filepath = vim.fn.expand("%:p")
+        local project_root = vim.fn.getcwd()
+        local relative_path = filepath:gsub(project_root .. "/", "")
+        local classpath = relative_path
+          :gsub("%.java$", "")
+          :gsub("/", ".")
+        local cmd = "javac " .. relative_path .. " && java " .. classpath
+        run_toggleterm_cmd(cmd)
+      end
+    })
   end,
 })
 
+-- C++
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "cpp",
   callback = function()
-    vim.api.nvim_buf_set_keymap(0, "n", "<leader>c", ":w<CR>:!g++ % -o %:r && ./%:r<CR>", opts)
+    vim.api.nvim_buf_set_keymap(0, "n", "<leader>c", "", {
+      noremap = true,
+      callback = function()
+        vim.cmd("w")
+        local file = vim.fn.expand("%:t")
+        local out = vim.fn.expand("%:t:r")
+        local cmd = "g++ " .. file .. " -o " .. out .. " && ./" .. out
+        run_toggleterm_cmd(cmd)
+      end
+    })
   end,
 })
 
+-- Kotlin
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "kotlin",
   callback = function()
-    vim.api.nvim_buf_set_keymap(0, "n", "<leader>k", ":w<CR>:!kotlinc % -include-runtime -d %:r.jar && java -jar %:r.jar<CR>", opts)
+    vim.api.nvim_buf_set_keymap(0, "n", "<leader>k", "", {
+      noremap = true,
+      callback = function()
+        vim.cmd("w")
+        local file = vim.fn.expand("%:t")
+        local base = vim.fn.expand("%:t:r")
+        local cmd = "kotlinc " .. file .. " -include-runtime -d " .. base .. ".jar && java -jar " .. base .. ".jar"
+        run_toggleterm_cmd(cmd)
+      end
+    })
   end,
 })
 
