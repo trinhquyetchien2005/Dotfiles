@@ -1,9 +1,9 @@
+vim.g.mapleader = " "
+
 require("plugins.init")
 
 require("core.options")
-
 require("core.mappings")
-
 require("core.colorscheme")
 
 vim.api.nvim_create_user_command("ShowKeymaps", function()

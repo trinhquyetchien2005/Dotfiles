@@ -1,8 +1,0 @@
-#[Desktop Entry]
-#Type=Application
-#Exec=/home/trinhquyetchien/Dotfiles/screen_fix.sh
-#Hidden=false
-#NoDisplay=false
-#X-GNOME-Autostart-enabled=true
-#Name=Screen Fix
-#Comment=Fixes display scaling for multiple monitors

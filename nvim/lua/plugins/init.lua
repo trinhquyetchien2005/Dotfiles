@@ -9,30 +9,59 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 vim.diagnostic.config({
-    virtual_text = true,              -- tắt lỗi hiện bên cạnh dòng
-    signs = true,                     -- vẫn giữ dấu hiệu lỗi bên lề trái
+    virtual_text = true,     -- tắt lỗi hiện bên cạnh dòng
+    signs = true,            -- vẫn giữ dấu hiệu lỗi bên lề trái
     underline = true,
-    update_in_insert = true,         -- đỡ giật khi đang gõ
+    update_in_insert = true, -- đỡ giật khi đang gõ
 })
 
 require("lazy").setup({
+    { import = "plugins.markdown" },
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
+        "barrett-ruth/live-server.nvim",
+        build = "npm install -g live-server",
+        cmd = { "LiveServerStart", "LiveServerStop" },
+        config = true
+    },
+    {
+        "numToStr/Comment.nvim",
         config = function()
-            vim.cmd.colorscheme("catppuccin")
+            require("Comment").setup()
         end,
     },
-
+    {
+        "akinsho/flutter-tools.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "stevearc/dressing.nvim", -- optional, UI đẹp
+        },
+        config = function()
+            require("flutter-tools").setup {}
+        end
+    },
+    {
+        "Pocco81/auto-save.nvim",
+        config = function()
+            require("auto-save").setup({
+                debounce_delay = 135,
+                trigger_events = { "TextChanged" },
+            })
+        end
+    },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
         config = function()
             require("nvim-autopairs").setup({})
+        end
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        ft = { "html", "xml", "javascript", "typescriptreact", "javascriptreact" },
+        config = function()
+            require("nvim-ts-autotag").setup()
         end,
     },
-
     {
         'mfussenegger/nvim-jdtls',
         ft = { 'java' },
@@ -95,13 +124,13 @@ require("lazy").setup({
         config = function()
             require("bufferline").setup({
                 options = {
-                    mode = "buffers",      -- hiển thị theo buffer chứ không phải tabs
-                    diagnostics = "nvim_lsp", -- hiển thị lỗi/warning từ LSP
-                    show_buffer_close_icons = true, -- ẩn icon đóng từng buffer
-                    show_close_icon = false, -- ẩn icon đóng toàn bộ bufferline
-                    separator_style = "thin", -- kiểu đường kẻ phân cách buffer
-                    always_show_bufferline = false, -- luôn hiển thị bufferline, không ẩn khi chỉ 1 buffer
-                    diagnostics_update_in_insert = false, -- không cập nhật diagnostics khi đang insert (giúp giảm giật lag)
+                    mode = "buffers",
+                    diagnostics = "nvim_lsp",
+                    show_buffer_close_icons = false,
+                    show_close_icon = false,
+                    separator_style = "thin",
+                    always_show_bufferline = true,
+                    diagnostics_update_in_insert = false,
                 },
             })
         end,
@@ -161,7 +190,7 @@ require("lazy").setup({
         priority = 1000,
         config = function()
             require("tokyonight").setup({
-                transparent = true,  -- nếu muốn nền trong suốt
+                transparent = true,           -- nếu muốn nền trong suốt
             })
             vim.cmd.colorscheme("tokyonight") -- bật theme tokyo night
         end,
