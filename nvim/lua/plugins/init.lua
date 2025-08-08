@@ -197,3 +197,5 @@ require("lazy").setup({
     },
 })
 require("plugins.lsp")
+require("plugins.markdown")
+require("plugins.cmp")
