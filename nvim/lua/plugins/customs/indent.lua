@@ -1,4 +1,5 @@
--- Tạo bảng highlight cho 10 cấp indent với màu nền khác nhau
+local hl = vim.api.nvim_set_hl
+
 local highlight = {
     "IndentBlanklineIndent1",
     "IndentBlanklineIndent2",
@@ -11,30 +12,33 @@ local highlight = {
     "IndentBlanklineIndent9",
     "IndentBlanklineIndent10",
 }
+hl(0, "IndentBlanklineIndent1", { fg = "#2E3440" })  -- xám đậm
+hl(0, "IndentBlanklineIndent2", { fg = "#374151" })  -- xám xanh than
+hl(0, "IndentBlanklineIndent3", { fg = "#3F4B5B" })  -- xám xanh khói
+hl(0, "IndentBlanklineIndent4", { fg = "#465263" })  -- xám đá
+hl(0, "IndentBlanklineIndent5", { fg = "#4F5E6E" })  -- xanh thép
+hl(0, "IndentBlanklineIndent6", { fg = "#556472" })  -- xanh xám lạnh
+hl(0, "IndentBlanklineIndent7", { fg = "#5A6E78" })  -- xanh khói
+hl(0, "IndentBlanklineIndent8", { fg = "#60757F" })  -- xanh xám biển
+hl(0, "IndentBlanklineIndent9", { fg = "#677E84" })  -- xanh ô-liu xám
+hl(0, "IndentBlanklineIndent10", { fg = "#6E848C" }) -- xanh tro
 
--- Định nghĩa màu nền cho từng group highlight (màu bạn có thể chỉnh theo ý)
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent1", { bg = "#1e222a" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent2", { bg = "#282c34" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent3", { bg = "#313644" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent4", { bg = "#3b4150" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent5", { bg = "#454b5c" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent6", { bg = "#4f5568" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent7", { bg = "#595f74" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent8", { bg = "#636981" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent9", { bg = "#6d738d" })
-vim.api.nvim_set_hl(0, "IndentBlanklineIndent10", { bg = "#777c99" })
+hl(0, "IblScope", { fg = "#836FFF" })
 
 -- Setup indent-blankline
 require("ibl").setup {
     indent = {
         highlight = highlight, -- dùng mảng highlight màu nền cho indent
-        char = "",         -- không hiển thị gạch đứng
+        char = "▏",
     },
     whitespace = {
         highlight = highlight, -- màu giống indent cho khoảng trắng cuối dòng
         remove_blankline_trail = false,
     },
     scope = {
-        enabled = false, -- tắt phần scope highlight (nếu muốn bật thì sửa thành true)
+        enabled = true,        -- Bật highlight indent đang đứng
+        highlight = { "IblScope" },
+        show_start = true,
+        show_end = true,
     },
 }

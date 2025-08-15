@@ -26,6 +26,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
+        --auto tag
+        {
+            "windwp/nvim-ts-autotag",
+            config = function()
+                require("nvim-ts-autotag").setup()
+            end,
+            dependencies = { "nvim-treesitter/nvim-treesitter" },
+        },
+
         --lualine
         {
             'nvim-lualine/lualine.nvim',
@@ -34,15 +43,15 @@ require("lazy").setup({
                 require("plugins.customs.lualine")
             end,
         },
-        --error-lens
+
+        --none-ls
         {
-            "chikko80/error-lens.nvim",
-            event = "BufRead",
-            dependencies = { "nvim-telescope/telescope.nvim" },
+            "nvimtools/none-ls.nvim",
             config = function()
-                require("plugins.customs.error")
+                require("plugins.customs.none_ls")
             end,
         },
+
         --neotree
         {
             "nvim-neo-tree/neo-tree.nvim",
@@ -63,6 +72,24 @@ require("lazy").setup({
             priority = 1000,
             config = function()
                 vim.cmd.colorscheme("tokyonight-moon")
+            end,
+        },
+
+        --diagnostics
+        {
+            "rachartier/tiny-inline-diagnostic.nvim",
+            event = "VeryLazy",
+            priority = 1000,
+            config = function()
+                require("plugins.customs.diagnostic")
+            end
+        },
+
+        --color
+        {
+            "norcalli/nvim-colorizer.lua",
+            config = function()
+                require("plugins.customs.color")
             end,
         },
 
@@ -117,9 +144,11 @@ require("lazy").setup({
             "hrsh7th/nvim-cmp",
             event = "InsertEnter",
             dependencies = {
+                "hrsh7th/nvim-cmp",
                 "hrsh7th/cmp-nvim-lsp",
                 "hrsh7th/cmp-buffer",
                 "hrsh7th/cmp-path",
+                "hrsh7th/cmp-cmdline",
                 "saadparwaiz1/cmp_luasnip",
                 "L3MON4D3/LuaSnip",
                 "rafamadriz/friendly-snippets",
@@ -143,7 +172,7 @@ require("lazy").setup({
         {
             "goolord/alpha-nvim",
             config = function()
-                require("plugins.customs.alpha") -- file config bạn tự tạo
+                require("plugins.customs.alpha")
             end,
         },
 
