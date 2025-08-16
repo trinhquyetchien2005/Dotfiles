@@ -4,6 +4,7 @@ require("neo-tree").setup({
     enable_git_status = true,
     enable_diagnostics = false,
     visible = true,
+
     never_show = {},
 
     default_component_configs = {
