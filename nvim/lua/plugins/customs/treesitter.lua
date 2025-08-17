@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "python", "javascript", "typescript", "go", "rust", "bash" }, -- các ngôn ngữ muốn cài parser
+    ensure_installed = { "lua", "python", "javascript", "typescript", "go", "rust", "bash", "markdown" }, -- các ngôn ngữ muốn cài parser
     sync_install = false,
     auto_install = true,                                                                    -- tự động cài khi mở file có parser chưa cài
 

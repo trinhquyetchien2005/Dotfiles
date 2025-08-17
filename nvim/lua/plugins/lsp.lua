@@ -43,6 +43,16 @@ for _, server in ipairs(servers) do
                 showTodos = true,
             }
         }
+    elseif server == "kotlin_language_server" then
+        opts.cmd = { "kotlin-language-server" } -- nếu cần đường dẫn đầy đủ
+        opts.settings = {
+            kotlin = {
+                languageServer = {
+                    storagePath = vim.fn.stdpath("data") .. "/kotlin-language-server"
+                }
+            }
+        }
     end
+
     lspconfig[server].setup(opts)
 end

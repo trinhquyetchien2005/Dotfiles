@@ -39,6 +39,6 @@ require("ibl").setup {
         enabled = true, -- Bật highlight indent đang đứng
         highlight = { "IblScope" },
         show_start = true,
-        show_end = true,
+        show_end = false,
     },
 }

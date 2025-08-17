@@ -4,9 +4,9 @@ local api = vim.api
 api.nvim_create_autocmd("InsertLeave", {
     callback = function()
         if vim.bo.modifiable and vim.bo.filetype ~= "gitcommit" then
-            pcall(function()
-                vim.lsp.buf.format({ async = false })
-            end)
+            --            pcall(function()
+            --                vim.lsp.buf.format({ async = false })
+            --            end)
             vim.cmd("silent! write")
         end
     end

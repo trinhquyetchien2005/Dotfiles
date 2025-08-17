@@ -23,3 +23,4 @@ opt.hlsearch = true
 opt.splitbelow = true
 opt.splitright = true
 opt.hidden = true
+opt.cursorline = true 
