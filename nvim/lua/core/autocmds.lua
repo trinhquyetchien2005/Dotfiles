@@ -25,7 +25,6 @@ vim.api.nvim_create_autocmd('TermOpen', {
 })
 
 --auto lsp lualine
-
 vim.api.nvim_create_autocmd({ "LspAttach", "LspDetach" }, {
     callback = function()
         vim.cmd("redrawstatus")

@@ -23,7 +23,7 @@ hl(0, "IndentBlanklineIndent8", { fg = "#60757F" })  -- xanh xám biển
 hl(0, "IndentBlanklineIndent9", { fg = "#677E84" })  -- xanh ô-liu xám
 hl(0, "IndentBlanklineIndent10", { fg = "#6E848C" }) -- xanh tro
 
-hl(0, "IblScope", { fg = "#836FFF" })
+hl(0, "IblScope", { fg = "#808D7C" })
 
 -- Setup indent-blankline
 require("ibl").setup {
@@ -36,7 +36,7 @@ require("ibl").setup {
         remove_blankline_trail = false,
     },
     scope = {
-        enabled = true,        -- Bật highlight indent đang đứng
+        enabled = true, -- Bật highlight indent đang đứng
         highlight = { "IblScope" },
         show_start = true,
         show_end = true,

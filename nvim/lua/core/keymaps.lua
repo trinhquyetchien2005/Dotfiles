@@ -9,7 +9,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 --CORE
-
 --split window and terminal
 keymap.set('n', '<leader>sh', ':split<CR>', opts)
 keymap.set('n', '<leader>sv', ':vsplit<CR>', opts)
@@ -73,7 +72,7 @@ local function duplicate()
         vim.api.nvim_feedkeys("yyp", "n", false)
     end
 end
-keymap.set({"n", "v"}, "<leader>du", duplicate, opts)
+keymap.set({ "n", "v" }, "<leader>du", duplicate, opts)
 
 
 --undo
@@ -182,5 +181,3 @@ keymap.set('n', '<leader>ls', ':split | terminal live-server<CR>', opts)
 keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", opts)
 keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", opts)
 keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", opts)
-
-

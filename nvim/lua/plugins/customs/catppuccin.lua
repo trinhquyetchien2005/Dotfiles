@@ -11,9 +11,11 @@ catppuccin.setup({
         strings = {},
         variables = {},
     },
+    show_end_of_buffer = false,
+
     integrations = {
         treesitter = true,
-        lualine = false, -- tắt lualine integration
+        lualine = false,
         native_lsp = {
             enabled = true,
             virtual_text = {
@@ -39,5 +41,4 @@ catppuccin.setup({
         ts_rainbow = true,
     },
 })
-
 vim.cmd.colorscheme "catppuccin"

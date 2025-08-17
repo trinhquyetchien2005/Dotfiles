@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.fillchars = { eob = " " }
 opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true

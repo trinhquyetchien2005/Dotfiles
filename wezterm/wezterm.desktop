@@ -2,7 +2,9 @@
 Name=WezTerm
 Comment=The GPU-accelerated terminal emulator
 Exec=/home/linuxbrew/.linuxbrew/bin/wezterm
+Icon=/home/trinhquyetchien/Dotfiles/wezterm/terminal.png
 Terminal=false
 Type=Application
-Icon=/home/trinhquyetchien/Dotfiles/wezterm/terminal.png
-Categories=System;TerminalEmulator;
+Categories=System;Utility;TerminalEmulator;
+StartupNotify=true
+

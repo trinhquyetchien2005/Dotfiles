@@ -17,9 +17,6 @@ local servers = {
     "ts_ls",
     "dartls",
 }
-
-
-
 for _, server in ipairs(servers) do
     local opts = { on_attach = on_attach }
 

@@ -1,7 +1,7 @@
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'tokyonight',
+        theme = 'catppuccin',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = { statusline = {}, winbar = {} },
@@ -22,7 +22,7 @@ require('lualine').setup {
         },
         -- Trung tâm
         lualine_c = {
-            { 'filename', file_status = true, path = 1, icon = '' },
+            { 'filename', file_status = true, path = 1, icon = '' },
             {
                 function()
                     local msg = 'No Active LSP'
@@ -108,7 +108,7 @@ require('lualine').setup {
                 function()
                     return os.date(" %H:%M:%S")
                 end,
-                color = { fg = "#ffffff" },
+
             }
         }
     }
