@@ -1,4 +1,5 @@
 local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
 
 local on_attach = function(client, bufnr)
 end
@@ -44,7 +45,15 @@ for _, server in ipairs(servers) do
             }
         }
     elseif server == "kotlin_language_server" then
-        opts.cmd = { "kotlin-language-server" } -- nếu cần đường dẫn đầy đủ
+        opts.cmd = { "kotlin-language-server" }
+        opts.root_dir = util.root_pattern(
+            "settings.gradle",
+            "settings.gradle.kts",
+            "build.gradle",
+            "build.gradle.kts",
+            "pom.xml",
+            ".git"
+        )
         opts.settings = {
             kotlin = {
                 languageServer = {
@@ -52,6 +61,16 @@ for _, server in ipairs(servers) do
                 }
             }
         }
+    elseif server == "jdtls" then
+        opts.root_dir = util.root_pattern(
+            "settings.gradle",
+            "settings.gradle.kts",
+            "build.gradle",
+            "build.gradle.kts",
+            "pom.xml",
+            ".git"
+        )
+        opts.filetypes = { "java", "kotlin" }
     end
 
     lspconfig[server].setup(opts)

@@ -42,14 +42,11 @@ catppuccin.setup({
     },
     custom_highlights = function(colors)
         return {
-            -- Số dòng tương đối
             LineNr = { fg = colors.subtext1 },
 
-            -- Số dòng hiện tại (nổi bật hơn)
             CursorLineNr = { fg = colors.green, style = { "bold" } },
 
-            -- Nền dòng hiện tại
-            CursorLine = { bg = colors.surface0 },
+            CursorLine = { bg = "NONE" },
         }
     end,
 })
