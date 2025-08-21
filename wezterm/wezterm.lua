@@ -22,7 +22,7 @@ config.keys = {
 
 }
 
-local default_opacity = 0.5
+local default_opacity = 0.8
 
 config.window_background_opacity = default_opacity
 
@@ -55,12 +55,12 @@ end)
 config.keys = {
     { key = "UpArrow",   mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("opacity-up") },
     { key = "DownArrow", mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("opacity-down") },
-    { key = "r",         mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("opacity-reset") },
+    { key = "Space",         mods = "CTRL|SHIFT", action = wezterm.action.EmitEvent("opacity-reset") },
     { key = "Enter",     mods = "CTRL|SHIFT", action = "ToggleFullScreen" },
-    { key = "c",         mods = "CTRL", action = wezterm.action.CopyTo("Clipboard") },
-    { key = "v",         mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
+    { key = "C",         mods = "CTRL|SHIFT", action = wezterm.action.CopyTo("Clipboard") },
+    { key = "V",         mods = "CTRL|SHIFT", action = wezterm.action.PasteFrom("Clipboard") }
 }
---wezterm.on("gui-startup", function(cmd)
+--ezterm.on("gui-startup", function(cmd)
 --    local mux = wezterm.mux
 --    local tab, pane, window = mux.spawn_window(cmd or {})
 --    pane:send_text("tmux attach || tmux\n")

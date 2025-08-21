@@ -4,6 +4,8 @@ local util = require("lspconfig.util")
 local on_attach = function(client, bufnr)
 end
 
+require("plugins.lsp.ts_ls")
+
 local servers = {
     "lua_ls",
     "clangd",
@@ -18,6 +20,7 @@ local servers = {
     "ts_ls",
     "dartls",
 }
+
 for _, server in ipairs(servers) do
     local opts = { on_attach = on_attach }
 

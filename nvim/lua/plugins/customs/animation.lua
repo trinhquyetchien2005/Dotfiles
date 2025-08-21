@@ -1,6 +1,4 @@
 local mouse_scrolled = false
-
--- Bắt scroll chuột
 for _, dir in ipairs({ "Up", "Down" }) do
     local key = "<ScrollWheel" .. dir .. ">"
     vim.keymap.set({ "", "i" }, key, function()
@@ -26,5 +24,10 @@ return {
                 return total_scroll > 1
             end,
         }),
+        hooks = {
+            -- scroll mượt mà, cursor đi cùng dòng văn bản
+            pre_scroll = function() end,
+            post_scroll = function() end,
+        },
     },
 }

@@ -11,8 +11,8 @@ require("mason-lspconfig").setup {
         "html",
         "cssls",
         "tailwindcss",
-        "kotlin_language_server",
         "ts_ls",
+        "kotlin_language_server",
     },
 
     automatic_installation = true,

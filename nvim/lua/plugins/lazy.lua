@@ -26,6 +26,22 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     spec = {
+        --lazygit.nvim
+        {
+            "kdheepak/lazygit.nvim",
+            lazy = true,
+            cmd = {
+                "LazyGit",
+                "LazyGitConfig",
+                "LazyGitCurrentFile",
+                "LazyGitFilter",
+                "LazyGitFilterCurrentFile",
+            },
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+            },
+        },
+
         --markdown-preview
         {
             "iamcco/markdown-preview.nvim",
@@ -71,7 +87,6 @@ require("lazy").setup({
         --neotree
         {
             "nvim-neo-tree/neo-tree.nvim",
-            branch = "v3.x",
             dependencies = {
                 "nvim-lua/plenary.nvim",
                 "nvim-tree/nvim-web-devicons",
@@ -216,7 +231,7 @@ require("lazy").setup({
         {
             "neovim/nvim-lspconfig",
             config = function()
-                require("plugins.lsp")
+                require("plugins.lsp.init")
             end,
         }
 
