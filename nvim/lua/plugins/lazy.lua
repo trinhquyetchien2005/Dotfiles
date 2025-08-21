@@ -231,6 +231,7 @@ require("lazy").setup({
         {
             "neovim/nvim-lspconfig",
             config = function()
+                version = "0.2.1"
                 require("plugins.lsp.init")
             end,
         }
@@ -254,8 +255,8 @@ require("lazy").setup({
     performance = {
         rtp = {
             disabled_plugins = {
-                "gzip",
-                "tarPlugin",
+                "gzipx 1",
+                "arPlugin",
                 "tohtml",
                 "tutor",
                 "zipPlugin",

@@ -1,25 +1,27 @@
-require("neo-tree").setup({
+-- ~/.config/nvim/lua/plugins/neotree_safe.lua
+local has_neotree, neo_tree = pcall(require, "neo-tree")
+if not has_neotree then return end
+
+-- Vô hiệu hóa EditorConfig nếu chưa cài module
+pcall(function() require("editorconfig") end)
+
+-- Config Neo-tree
+neo_tree.setup({
     close_if_last_window = true,
     popup_border_style = "rounded",
     enable_git_status = true,
     enable_diagnostics = false,
     visible = true,
 
-    never_show = {},
-
     default_component_configs = {
         indent = { padding = 1 },
-
-        -- Icons cho folder/file
         icon = {
             folder_closed = "",
             folder_open   = "",
-          folder_empty  = "",
+            folder_empty  = "",
             default       = "",
             symlink       = "",
         },
-
-        -- Git status icons
         git_status = {
             symbols = {
                 added     = "",
@@ -55,7 +57,12 @@ require("neo-tree").setup({
             hide_dotfiles = false,
             hide_gitignored = true,
         },
-        follow_current_file = { enabled = true },
-        use_libuv_file_watcher = true,
+        follow_current_file = {
+            enabled = true,
+            -- safety: ignore errors
+            leave_dirs_open = false,
+            group_empty_dirs = true,
+        },
+        use_libuv_file_watcher = false, -- tắt tạm để tránh crash
     },
 })

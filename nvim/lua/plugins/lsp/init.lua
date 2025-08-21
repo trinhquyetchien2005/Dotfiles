@@ -17,7 +17,7 @@ local servers = {
     "cssls",
     "tailwindcss",
     "kotlin_language_server",
-    "ts_ls",
+    --"th_ls",
     "dartls",
 }
 
