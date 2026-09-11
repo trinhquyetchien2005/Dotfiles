@@ -41,6 +41,7 @@ alias mongodb='google-chrome https://cloud.mongodb.com/v2#/org/675be6e45f137433a
 alias postman='google-chrome https://trinhquyetchiens-team.postman.co/home'
 alias neon='google-chrome https://console.neon.tech/app/org-fancy-wildflower-39437087/projects'
 alias cloudflare='google-chrome https://dash.cloudflare.com/f6c59e033046e634d8d128fe4ae30473/home'
+alias figma='google-chrome https://www.figma.com/'
 
 soical() {
     insta
